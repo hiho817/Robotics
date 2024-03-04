@@ -1,0 +1,2 @@
+Practice/class1:Practice/class2
+-DCATKIN_DEVEL_PREFIX=/home/kenny/Robotic/workspace/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kenny/Robotic/workspace/catkin_ws/install -G Unix Makefiles
