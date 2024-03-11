@@ -1,0 +1,67 @@
+[
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/gtest/googlemock",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /usr/src/googletest/googlemock/src/gmock_main.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/gtest/googlemock",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/googletest/googlemock/src/gmock-all.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/gtest/googletest",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/gtest/googletest",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/googletest/googletest/src/gtest-all.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class1",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice1\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_more.dir/src/turtle_more.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/turtle_more.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/turtle_more.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class1",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice1\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_control.dir/src/turtle_control.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/turtle_control.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/turtle_control.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class1",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice1\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/number_sum.dir/src/number_sum.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/number_sum.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/number_sum.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class1",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice1\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/number_pub.dir/src/number_pub.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/number_pub.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class1/src/number_pub.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class2",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice2\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_Pcontrol_B.dir/src/turtle_Pcontrol_B.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_Pcontrol_B.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_Pcontrol_B.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class2",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice2\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_Pcontrol_W.dir/src/turtle_Pcontrol_W.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_Pcontrol_W.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_Pcontrol_W.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class2",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice2\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_formation.dir/src/turtle_formation.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_formation.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_formation.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class2",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice2\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_keyboard.dir/src/turtle_keyboard.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_keyboard.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_keyboard.cpp"
+},
+{
+  "directory": "/home/kenny/Robotic/workspace/catkin_ws/src/build/Practice/class2",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"practice2\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/turtle_more1.dir/src/turtle_more1.cpp.o -c /home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_more1.cpp",
+  "file": "/home/kenny/Robotic/workspace/catkin_ws/src/Practice/class2/src/turtle_more1.cpp"
+}
+]

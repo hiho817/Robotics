@@ -1,0 +1,8 @@
+prefix=/home/kenny/Robotic/workspace/catkin_ws/src/build/devel
+
+Name: practice2
+Description: Description of practice2
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
