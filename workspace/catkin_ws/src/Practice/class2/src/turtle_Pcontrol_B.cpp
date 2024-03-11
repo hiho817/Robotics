@@ -44,22 +44,33 @@ void turtle_cb(const turtlesim::Pose::ConstPtr& msg)
 	turtle = *msg;
 }
 
-void worldtobodyQuat(float &x, float &y, float theta)
+void worldtobodyQuat(float x, float y, float theta)
 {
-	/* --------------------
-	Finish your code here
+	/////////////// please uncomment the following code and finish it //////////////
+	double w = cos(theta/2);
+	double z = sin(theta/2);
 
-	
-	----------------------*/
+	Eigen::Quaterniond q(w, 0, 0, z);
+	Eigen::Quaterniond q_normalized(q.w()/q.norm(), q.x()/q.norm(), q.y()/q.norm(), q.z()/q.norm());
+	Eigen::Quaterniond v(0, x, y, 0);
+	Eigen::Quaterniond v_new = q_normalized.inverse()* v * q_normalized;
+	pos_err_I.x = v_new.x();
+	pos_err_I.y = v_new.y();
+	std::cout << "x quat: " << pos_err_I.x << std::endl;
+	std::cout << "y quat: " << pos_err_I.y << std::endl;
 }
 
 void body2WorldQuat(float &x, float &y, float theta)
 {
-	/* --------------------
-	Finish your code here
+	double w = cos(-theta/2);
+	double z = sin(-theta/2);
 
-	
-	----------------------*/
+	Eigen::Quaterniond q(w, 0, 0, z);
+	Eigen::Quaterniond q_normalized(q.w()/q.norm(), q.x()/q.norm(), q.y()/q.norm(), q.z()/q.norm());
+	Eigen::Quaterniond v(0, x, y, 0);
+	Eigen::Quaterniond v_new = q_normalized.inverse()* v * q_normalized;
+	turtle_goal.x = v_new.x()+turtle.x;
+	turtle_goal.y = v_new.y()+turtle.y;
 }
 
 // P control for goal position in world frame 
@@ -80,18 +91,15 @@ void Positioncontrol(geometry_msgs::Point &goal, turtlesim::Pose &turtle_pose, g
 
 	// Output boundary
 	if (error_norm > 2) error_norm = 2;
+	
+	// error 
+	if (error_norm < 0.1) error_norm = error_theta= 0;
 
 	// Design your controller here, you may use a simple P controller
-	
-	/*--------------------------
-
-
-		ex: turtle_vel_msg.x = ....
-			turtle_vel_msg.theta = ....
-
-
-
-	-----------------------------*/
+	float P_linear = 1;
+	float P_angular = 4;
+	turtle_vel_msg.linear.x = P_linear * error_norm;
+	turtle_vel_msg.angular.z = P_angular * error_theta;
 }
 
 
@@ -119,11 +127,8 @@ int main(int argc, char **argv)
 	cin>>gy;	
 	ros::spinOnce();
 
-	/*------------------ implement a roatation using body2WorldQuat ------------------
-
-
-	--------------------------------------------------------------------------------*/
-
+	body2WorldQuat(gx, gy, turtle.theta);
+	
 	// setting frequency as 10 Hz
   	ros::Rate loop_rate(10);
 	

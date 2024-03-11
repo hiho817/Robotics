@@ -94,12 +94,15 @@ void Positioncontrol(geometry_msgs::Point &goal, turtlesim::Pose &turtle_pose, g
 	// Output boundary
 	if (error_norm > 2) error_norm = 2;
 
+	// error 
+	if (error_norm < 0.1) error_norm = error_theta= 0;
 	// Design your controller here, you may use a simple P controller
 
-	float P_linear = 0.1;
-	float P_angular = 8;
+	float P_linear = 1;
+	float P_angular = 4;
 	turtle_vel_msg.linear.x = P_linear * error_norm;
 	turtle_vel_msg.angular.z = P_angular * error_theta;
+
 }
 
 
