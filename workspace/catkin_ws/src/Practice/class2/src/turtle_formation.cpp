@@ -5,6 +5,7 @@
 #include <turtlesim/Pose.h>
 #include <geometry_msgs/Twist.h>
 #include <geometry_msgs/Point.h>
+#include <eigen3/Eigen/Dense>
 
 // include math 
 #include <math.h>
@@ -63,27 +64,31 @@ void follower_cb2(const turtlesim::Pose::ConstPtr& msg)
 // transform leader frame to world frame
 void leadertoworld2D(geometry_msgs::Point &follower_goal, turtlesim::Pose &leader)
 {
-	/*------------------------------
-	Finish your code here, for example :
-
-	float temp_x = follower_goal.x;
-	follower_goal.x = cos(leader.theta) + ......
-	
-
-	---------------------------------*/
-} 
+    // Transform follower_goal from leader's frame to world frame
+    float temp_x = follower_goal.x;
+	float temp_y = follower_goal.y;
+    follower_goal.x = cos(leader.theta) * temp_x - sin(leader.theta) * temp_y + leader.x;
+    follower_goal.y = sin(leader.theta) * temp_x + cos(leader.theta) * temp_y + leader.y;
+}
 
 
 
 // rotate the world frame coordinate to body frame 
-void worldtobody2D(float &x, float &y, float theta)
+void worldtobodyQuat(float &x, float &y, float theta)
 {
-	/* --------------------
-	Finish your code here
+	/////////////// please uncomment the following code and finish it //////////////
+	double w = cos(theta/2);
+	double z = sin(theta/2);
 
-
-	----------------------*/
-} 
+	Eigen::Quaterniond q(w, 0, 0, z);
+	Eigen::Quaterniond q_normalized(q.w()/q.norm(), q.x()/q.norm(), q.y()/q.norm(), q.z()/q.norm());
+	Eigen::Quaterniond v(0, x, y, 0);
+	Eigen::Quaterniond v_new = q_normalized.inverse()* v * q_normalized;
+	x = v_new.x();
+	y = v_new.y();
+	std::cout << "x quat: " << x << std::endl;
+	std::cout << "y quat: " << y << std::endl;
+}
 
 
 // P control for goal position in world frame 
@@ -94,7 +99,7 @@ void Positioncontrol(geometry_msgs::Point &goal, turtlesim::Pose &follower, geom
 	pos_err_I.y = goal.y - follower.y;
 
 	// Find the goal_point position in Body(turtlesim) frame
-	worldtobody2D(pos_err_I.x, pos_err_I.y, follower.theta);
+	worldtobodyQuat(pos_err_I.x, pos_err_I.y, follower.theta);
 
 	// Find the error postion 
 	float error_norm = sqrt(pow(pos_err_I.x, 2) + pow(pos_err_I.y, 2));
@@ -105,17 +110,14 @@ void Positioncontrol(geometry_msgs::Point &goal, turtlesim::Pose &follower, geom
 	// Output boundary
 	if (error_norm > 2) error_norm = 2;
 
+	// error 
+	if (error_norm < 0.1) error_norm = error_theta= 0;
+
 	// Design your controller here, you may use a simple P controller
-	
-	/*--------------------------
-
-
-		ex: vel_msg.x = ....
-			vel_msg.theta = ....
-
-
-
-	-----------------------------*/
+	float P_linear = 1;
+	float P_angular = 4;
+	vel_msg.linear.x = P_linear * error_norm;
+	vel_msg.angular.z = P_angular * error_theta;
 }
 
 
