@@ -95,10 +95,13 @@ def quad_sim(x_c, y_c, z_c):
             des_y_acc = calculate_acceleration(y_c[i], t)
             des_z_acc = calculate_acceleration(z_c[i], t)
             
-            # desire roll and pitch angle is depend on the acceleration
-            
-            des_roll = asin(-des_y_acc/g); # arcsin can be seen as linear if the angle is sufficiently small
-            des_pitch = asin(des_x_acc/g);
+            # Checkpoint5 :  Please define your desire roll and pitch angle here !
+            # Hint : Desire roll and pitch angle is depend on the acceleration !
+            '''
+            des_roll =            # arcsin can be seen as linear if the angle is sufficiently small
+            des_pitch = 
+            '''
+
             '''
             ---------------error definition------------------
             '''

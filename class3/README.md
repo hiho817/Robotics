@@ -1,4 +1,4 @@
-# Practice3
+# Exercise3
 
 ## Usage 
 
