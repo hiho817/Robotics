@@ -2,7 +2,7 @@
 Simulate a quadrotor following a 3D trajectory, reference : PythonRobotics/ Daniel Ingram
 """
 from cmath import pi
-from math import cos, sin, acos, asin
+from math import cos, sin, acos, asin , atan
 from random import weibullvariate
 import numpy as np
 from Quadrotor import Quadrotor
@@ -105,6 +105,9 @@ def quad_sim(x_c, y_c, z_c):
             '''
             ---------------error definition------------------
             '''
+
+            des_roll = atan(-des_y_acc/g)
+            des_pitch = atan(des_x_acc/g)
             # error 
             ex_z = des_z_pos - z_pos;
             ev_z = des_z_vel - z_vel;

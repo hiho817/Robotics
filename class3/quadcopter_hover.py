@@ -132,6 +132,25 @@ def quad_sim(x_c, y_c, z_c):
             ew_yaw = 
 
             '''
+            # For P control
+            # position error 
+            ex_z =  des_z_pos - z_pos
+
+            # angle error
+            er_roll = des_roll - roll
+            er_pitch = des_pitch - pitch
+            er_yaw = des_yaw - yaw
+    
+            # For D control
+            
+            # velocity error
+            ev_z = des_z_vel - z_vel
+            
+            # angular velocity error
+            ew_roll = des_roll_rate -roll_rate
+            ew_pitch = des_pitch_rate - pitch_rate
+            ew_yaw = des_yaw_rate - yaw_rate
+
             
             # Checkpoint4 : Please define your controller here !
             '''
@@ -146,6 +165,14 @@ def quad_sim(x_c, y_c, z_c):
             pitch_torque = 
             yaw_torque =
             '''
+            # translation controller
+            total_thrust =  (g + Kp_z * ex_z + Kd_z * ev_z) * q.m
+            
+            # rotation controller
+            roll_torque = (Kp_roll * ew_roll + Kd_roll * ew_roll) * Ixx
+            pitch_torque = (Kp_pitch * ew_pitch + Kd_pitch * ew_pitch) * Iyy
+            yaw_torque = (Kp_yaw * ew_yaw + Kd_yaw * ew_yaw) * Izz
+
 
             total_moment = np.array([ np.array([roll_torque]), np.array([pitch_torque]), yaw_torque], dtype=object)
             

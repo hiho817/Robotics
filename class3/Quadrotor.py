@@ -38,6 +38,11 @@ class Quadrotor():
                                            [ , , , ],
                                            [ , , , ]])
         '''
+
+        self.allocation_matrix = np.array([[1,1,1,1],
+                                           [self.L1 , -self.L1 , -self.L1 , self.L1],
+                                           [-self.L2 , -self.L2 , self.L2 , self.L2],
+                                           [self.cf , -self.cf , self.cf , -self.cf]])
         
         self.invallocation_matrix = np.linalg.inv(self.allocation_matrix)
         
@@ -85,7 +90,27 @@ class Quadrotor():
              [ , , , y],
              [ , , , z]])
         '''
+        '''
+        return np.array([[cos(yaw)*cos(pitch), cos(yaw)*sin(pitch)*sin(roll) - sin(yaw)*cos(roll), cos(yaw)*sin(pitch)*cos(roll) + sin(yaw)*sin(roll), x],
+                                    [sin(yaw)*cos(pitch), sin(yaw)*sin(pitch)*sin(roll) + cos(yaw)*cos(roll), sin(yaw)*sin(pitch)*cos(roll) - cos(yaw)*sin(roll), y],
+                                    [-sin(pitch), cos(pitch)*sin(roll), cos(pitch)*cos(roll), z]])
+        '''
+        # Rotation matrix from body frame to inertia frame
+        R_x = np.array([[1, 0, 0],
+                        [0, cos(roll), -sin(roll)],
+                        [0, sin(roll), cos(roll)]])
 
+        R_y = np.array([[cos(pitch), 0, sin(pitch)],
+                        [0, 1, 0],
+                        [-sin(pitch), 0, cos(pitch)]])
+
+        R_z = np.array([[cos(yaw), -sin(yaw), 0],
+                        [sin(yaw), cos(yaw), 0],
+                        [0, 0, 1]])
+
+        rotation_matrix = np.dot(R_z, np.dot(R_y, R_x)) # Rz dot Ry dot Rx
+
+        return np.column_stack([rotation_matrix, [x, y, z]])
     def plot(self):  # pragma: no cover
         T = self.transformation_matrix()
 
